@@ -1,0 +1,44 @@
+
+tsconfig.json을 만들고 tsc 명령어를 실행하자.
+
+타입스크립트 명령어 tsc
+
+    ts 파일에 있는 코드를 컴파일해서 index.js랑 index.js.map을 만들어준다.
+
+tsc 명령어를 사용하는 대신에 yarn start를 사용하자.
+
+    package.json에서 
+    "scripts": {
+        "start": "node index.js",
+        "prestart": "tsc" // yarn은 prestart를 실행하고 start를 실행한다.
+    }
+
+    node.js는 typescript를 이해하지 못하기 때문에 일반적인 javascript 코드로 컴파일하는 작업이 필요하다.
+
+
+
+ts에서 인터페이스들은 문제가 일어나는 것을 막기 위해 javascript에서 컴파일 되지 않는다.
+(자바스크립트에서 interface가 없으므로.) 그래서 인터페이스 대신 클래스를 넣는다.
+
+ts에서 클래스는 대단함. 코드를 컨트롤할 수 있게 해주기 때문.
+자바스크립트에서는 속성을 선언할 필요가 없지만 ts에서는 속성을 선언하고 권한까지 설정해주어야한다.
+
+    class Human {
+        public name: string;
+        public age: number;
+        public gender: string;
+        constructor(name: string, age:number, gender:string) {
+            this.name = name;
+            this.age = age;
+            this.gender = gender;
+        }
+    }
+
+    클래스를 사용할 경우 index.js로 가보면 컴파일된 class를 확인할 수 있음.
+    인터페이스를 사용하면 좀더 안전하지만 자바스크립트 코드에서 지원을 하지 않을 때가 있다.
+    일반적으로 리액트나 노드를 같이 사용할 경우에는 클래스를 쓰자.
+
+    속성 접근 제한자 private는 js에 없음.
+    컴파일하면 없지만 private를 호출할 경우에는 컴파일 하지 않을것임. (몇가지 속성을 보호하게 해준다.)
+
+    
